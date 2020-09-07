@@ -14,14 +14,21 @@ export const initialState = [
 export const TheReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TODO":
-      return {
+      return [{
         ...state,
         task: action.payload,
         id: Math.random(),
         completed: false,
-      };
+      }];
     case "TOGGLE_COMPLETED":
-      return { ...state, completed: !state.completed };
+      return [{ ...state, completed: !state.completed }];
+    case "INPUT_VALUE":
+      return [{
+        ...state,
+        task: action.payload,
+        id: Math.random(),
+
+      }];
     default:
       return state; // do nothing
   }

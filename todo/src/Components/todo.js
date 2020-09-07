@@ -2,6 +2,7 @@ import React from "react";
 
 const ToDo = (props) => {
   const { task, toggleCompleted } = props;
+  console.log(task)
   return (
     <div
       onClick={() => toggleCompleted(task.id)}

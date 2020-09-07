@@ -9,6 +9,7 @@ const ToDosList = (props) => {
       {todo.map((item) => (
         <ToDo key={item.id} task={item} toggleCompleted={toggleCompleted} />
       ))}
+      
     </div>
   );
 };

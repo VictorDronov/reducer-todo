@@ -11,30 +11,32 @@ function App() {
     dispatch({ type: "TOGGLE_COMPLETED" });
   };
 
-
   const addTask = (taskName) => {
-    const newTask = {
-      task: taskName,
-      id: Math.random(),
-      completed: false,
-    };
+    const newTask = [
+      {
+        task: taskName,
+        id: Math.random(),
+        completed: false,
+      },
+    ];
     // state.setToDo(state.todo, ...state.todo, newTask);
     dispatch({
-      type: "ADD_TODO", newTask
+      type: "ADD_TODO",
+      newTask,
     });
   };
 
   const formSubmit = (e) => {
     e.preventDefault();
-    addTask(state[1].task);
+    addTask(state.task);
   };
 
   const inputChanges = (e) => {
     dispatch({
-      type: "ADD_TODO"
+      type: "ADD_TODO",
     });
   };
-  console.log(state)
+  console.log(state);
 
   return (
     <div className="App">
@@ -43,7 +45,7 @@ function App() {
       <ToDoForm
         inputChanges={inputChanges}
         formSubmit={formSubmit}
-        todo={state.task}
+        task={state.task}
       />
     </div>
   );
