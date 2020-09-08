@@ -1,16 +1,12 @@
 import React from "react";
-
-const ToDo = (props) => {
-  const { task, toggleCompleted } = props;
-  console.log(task)
+const Todo = (props) => {
   return (
     <div
-      onClick={() => toggleCompleted(task.id)}
-      className={`task${task.completed ? " completed" : ""}`}
+      onClick={() => props.toggleDone(props.todoItem.id)}
+      className={`item${props.todoItem.done ? " done" : " "}`}
     >
-      <p key={task.id}>{task.task}, Completed: {JSON.stringify(task.completed)}</p>
+      <p>{props.todoItem.item}</p>
     </div>
   );
 };
-
-export default ToDo;
+export default Todo;

@@ -1,36 +1,41 @@
 export const initialState = [
   {
-    task: "Learn about reducers",
+    item: "Clean kitchen",
     id: Math.random(),
-    completed: false,
+    done: false,
   },
   {
-    task: "Fix Brain",
+    item: "Do laundry",
     id: Math.random(),
-    completed: false,
+    done: false,
+  },
+  {
+    item: "Buy groceries",
+    id: Math.random(),
+    done: false,
   },
 ];
 
-export const TheReducer = (state, action) => {
+export const reducer = (state, action) => {
   switch (action.type) {
-    case "ADD_TODO":
-      return [{
+    case "ADDING_TODO":
+      return [
         ...state,
-        task: action.payload,
-        id: Math.random(),
-        completed: false,
-      }];
-    case "TOGGLE_COMPLETED":
-      return [{ ...state, completed: !state.completed }];
-    case "INPUT_VALUE":
-      return [{
-        ...state,
-        task: action.payload,
-        id: Math.random(),
+        {
+          item: action.payload,
+          id: Math.random(),
+          done: false,
+        },
+      ];
 
-      }];
+    case "TOGGLE_COMPLETED":
+      return {
+        ...state,
+        item: action.payload,
+      };
+    case "CLEAR_COMPLETED":
+      return {};
     default:
-      return state; // do nothing
+      return state;
   }
-  //output is updated state
 };

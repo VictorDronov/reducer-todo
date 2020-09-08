@@ -1,17 +1,13 @@
 import React from "react";
-import ToDo from "./todo";
-
-const ToDosList = (props) => {
-  const { toggleCompleted, todo } = props;
-
+import Todo from "./todo";
+const TodoList = (props) => {
+  const { toDoList } = props;
   return (
     <div className="todo-list">
-      {todo.map((item) => (
-        <ToDo key={item.id} task={item} toggleCompleted={toggleCompleted} />
+      {toDoList.map((item) => (
+        <Todo key={item.id} todoItem={item} toggleDone={props.toggleDone} />
       ))}
-      
     </div>
   );
 };
-
-export default ToDosList;
+export default TodoList;
