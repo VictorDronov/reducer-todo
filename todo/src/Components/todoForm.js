@@ -1,8 +1,7 @@
-import React, { useReducer, useState } from "react";
-import { reducer, initialState } from "../reducers/index";
+import React, { useState } from "react";
 
-const TodoForm = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+const TodoForm = (props) => {
+  const {dispatch} = props;
   const [newToDo, setNewToDo] = useState("");
 
   // this function will handle the input field being changed
@@ -10,18 +9,12 @@ const TodoForm = () => {
   const handleChange = (e) => {
     setNewToDo(e.target.value);
   };
-  // this function will add each item being inputted
-  // it's using the addTodo funct from App.js and passing this.state.item as an argument
 
-  // handleSubmit = (evt) => {
-  //   evt.preventDefault();
-  //   this.props.addTodo(this.state.item);
-  // };
   // function for clearing the form after completing lives in App.js
 
   return (
     <>
-      <form className="form-input" >
+      <form className="form-input">
         <input
           value={newToDo}
           type="text"
@@ -29,12 +22,15 @@ const TodoForm = () => {
           onChange={handleChange}
           name="item"
         />
-        <button className="addTodo" onClick={()=>dispatch({type: "ADDING_TODO", payload: newToDo})} >Add Todo</button>
+        <button
+          className="addTodo"
+          onClick={() => dispatch({ type: "ADDING_TODO", payload: newToDo })}
+        >
+          Add Todo
+        </button>
       </form>
       <div className="container container3">
-        <button className="clearTodo-btn" >
-          Clear Completed
-        </button>
+        <button className="clearTodo-btn">Clear Completed</button>
       </div>
     </>
   );
