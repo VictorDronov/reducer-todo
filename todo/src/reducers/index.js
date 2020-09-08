@@ -29,12 +29,13 @@ export const reducer = (state, action) => {
       ];
 
     case "TOGGLE_COMPLETED":
-      return {
-        ...state,
-        item: action.payload,
-      };
+      return state.map((item) =>
+        item.id === action.payload
+          ? { ...item, completed: !item.completed }
+          : item
+      );
     case "CLEAR_COMPLETED":
-      return {};
+      return state.filter((item) => item.done === false);
     default:
       return state;
   }

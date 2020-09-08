@@ -10,35 +10,6 @@ function App() {
   // const [toDoList, setToDoList] = useState(toDoListData);
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // this clear function will clear all todo items that have been switched to done
-  // const clearTodo = () => {
-  //   setToDoList(
-  //     toDoList.filter((listItem) => {
-  //       if (listItem.done === true) {
-  //         return "";
-  //       } else {
-  //         return listItem;
-  //       }
-  //     })
-  //   );
-  // };
-
-  // this toggle function will switch todo item to true (e.g. task is done)
-  // const toggleDone = (clickedItemId) => {
-  //   setToDoList(
-  //     toDoList.map((listItem) => {
-  //       if (listItem.id === clickedItemId) {
-  //         return {
-  //           ...listItem,
-  //           done: !listItem.done,
-  //         };
-  //       } else {
-  //         return listItem;
-  //       }
-  //     })
-  //   );
-  // };
-
   return (
     <div>
       <h1>To-Do List</h1>

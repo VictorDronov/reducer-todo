@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const TodoForm = (props) => {
-  const {dispatch} = props;
+  const { dispatch } = props;
   const [newToDo, setNewToDo] = useState("");
 
   // this function will handle the input field being changed
@@ -22,15 +22,20 @@ const TodoForm = (props) => {
           onChange={handleChange}
           name="item"
         />
+      </form>
+      <div className="container container3">
+        <button
+          className="clearTodo-btn"
+          onClick={() => dispatch({ type: "CLEAR_COMPLETED" })}
+        >
+          Clear Completed
+        </button>
         <button
           className="addTodo"
           onClick={() => dispatch({ type: "ADDING_TODO", payload: newToDo })}
         >
           Add Todo
         </button>
-      </form>
-      <div className="container container3">
-        <button className="clearTodo-btn">Clear Completed</button>
       </div>
     </>
   );
