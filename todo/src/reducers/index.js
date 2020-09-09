@@ -29,14 +29,28 @@ export const reducer = (state, action) => {
       ];
 
     case "TOGGLE_COMPLETED":
-      return state.map((item) =>
-        item.id === action.payload
-          ? { ...item, completed: !item.completed }
-          : item
-      );
+      console.log("done", action.payload)
+      return state.map((item)=>{
+        if(item.id === action.payload){
+          return {
+            ...item, done: !item.done
+          }
+        } else {
+          return item
+        }
+      })
+      //toDoList.map((listItem) => {
+        // if (listItem.id === clickedItemId) {
+        //   return {
+        //     ...listItem,
+        //     done: !listItem.done,
+        //   };
+        // } else {
+        //   return listItem;
+        // }
     case "CLEAR_COMPLETED":
-      return state.filter((item) => item.done === false);
+      return state.filter((item) => item.done === !true);
     default:
       return state;
-  }
+  } 
 };
